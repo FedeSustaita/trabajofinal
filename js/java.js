@@ -3,67 +3,83 @@ const menu =[   //arreglo de menu con todos los alimentos
         id:1,
         nombre:"Hamburguesa",
         precio:10,
-        categoria: "comida"
+        categoria: "comida",
+        cantidad:1
     },
     {
         id:2,
         nombre:"Pizza",
         precio:8,
-        categoria: "comida"
-
+        categoria: "comida",
+        cantidad:1
     },
     {
         id:3,
         nombre:"Pasta",
         precio:15,
-        categoria: "comida"
+        categoria: "comida",
+        cantidad:1
     },
     {
         id:4,
         nombre:"Agua",
         precio:5,
-        categoria: "bebida"
+        categoria: "bebida",
+        cantidad:1
     },
     {
         id:5,
         nombre:"Jugo",
         precio:6,
-        categoria: "bebida"
+        categoria: "bebida",
+        cantidad:1
     },
     {
         id:6,
         nombre:"Gaseosa",
         precio:6,
-        categoria: "bebida"
+        categoria: "bebida",
+        cantidad:1
     },
     {
         id:7,
-        nombre:"Papas fritas",
+        nombre:"Cerveza",
         precio:8,
-        categoria: "guarnicion"
+        categoria: "bebida",
+        cantidad:1
     },
     {
         id:8,
-        nombre:"Pure de papa",
+        nombre:"Papas fritas",
         precio:8,
-        categoria: "guarnicion"
+        categoria: "guarnicion",
+        cantidad:1
     },
     {
         id:9,
+        nombre:"Pure de papa",
+        precio:8,
+        categoria: "guarnicion",
+        cantidad:1
+    },
+    {
+        id:10,
         nombre:"Ensalada",
         precio:6,
-        categoria: "guarnicion"
+        categoria: "guarnicion",
+        cantidad:1
     }
-]
 
+]
+let contador =JSON.parse(sessionStorage.getItem("contador"))||[]
 let  carrito= JSON.parse(sessionStorage.getItem("carrito"))||[]
 const vercarrito = document.getElementById("icon-shop")
 const ticket = document.getElementById("ticket")
 const divC=document.getElementById("Dcomida")
 const divB=document.getElementById("Dbebida")
 const divG=document.getElementById("Dguarnicion")
-
-
+const contadorprod=document.getElementById("contador")
+// funcionalidad de agregar elementos dentro del carrito con un + y un - tambien agregar pelota con numero de productos que lleva el cliente
 
 const botonC=document.getElementById("btn-comida")
 botonC.onclick=()=>{    //boton comida para que aparezcan los productos en pantalla con su boton de compra
@@ -73,7 +89,6 @@ botonC.onclick=()=>{    //boton comida para que aparezcan los productos en panta
     divG.style.display="none"
     const categoriacomida=menu.filter((el)=>el.categoria==="comida")
     categoriacomida.forEach((comida)=>{
-       
         let div = document.createElement("div")
         div.innerHTML=`
         <div id="caja">  
@@ -90,11 +105,19 @@ botonC.onclick=()=>{    //boton comida para que aparezcan los productos en panta
 
         comprar.onclick=()=>{
             carrito.push({
-               id: comida.id,
-               nombre: comida.nombre,
-               precio: comida.precio
+                id: comida.id,
+                nombre: comida.nombre,
+                precio: comida.precio,
+                cantidad: comida.cantidad,
             })
             save()
+            contador.push(1)
+            savecontador()
+            const totalc= contador.reduce((acumulador, elemento)=>acumulador + elemento, 0)
+            console.log(totalc);
+            console.log(contador);
+            contadorprod.innerText=`${totalc}`
+
         }
 })
 }
@@ -122,11 +145,18 @@ botonB.onclick=()=>{    //boton bebida para que aparezcan los productos en panta
         divB.append(comprar)
         comprar.onclick=()=>{
             carrito.push({
-               id: bebidas.id,
-               nombre: bebidas.nombre,
-               precio: bebidas.precio
+                id: bebidas.id,
+                nombre: bebidas.nombre,
+                precio: bebidas.precio,
+                cantidad: bebidas.cantidad,
             })
             save()
+            contador.push(1)
+            savecontador()
+            const totalc= contador.reduce((acumulador, elemento)=>acumulador + elemento, 0)
+            console.log(totalc);
+            contadorprod.innerText=`${totalc}`
+
         }
 })
 }
@@ -154,20 +184,36 @@ botonG.onclick=()=>{    //boton guarnicion para que aparezcan los productos en p
         divG.append(comprar)
         comprar.onclick=()=>{
             carrito.push({
-               id: guarnicion.id,
-               nombre: guarnicion.nombre,
-               precio: guarnicion.precio
+                id: guarnicion.id,
+                nombre: guarnicion.nombre,
+                precio: guarnicion.precio,
+                cantidad: guarnicion.cantidad,
             })
             save()
+            contador.push(1)
+            savecontador()
+            const totalc= contador.reduce((acumulador, elemento)=>acumulador + elemento, 0)
+            console.log(totalc);
+            contadorprod.innerText=`${totalc}`
         }
 })
 }
 
+console.log(contador);
+const totalc= contador.reduce((acumulador, elemento)=>acumulador + elemento, 0)
+console.log(totalc);
+contadorprod.innerText=`${totalc}`
+
+// carrito.forEach(element => {
+
+// });
 
 const pintarcarrito =()=>{
     let total =0
     ticket.innerHTML=""
     ticket.style.display="block"
+    let main = document.getElementById("main")
+    main.style.display="none"
 
     let head = document.createElement("div")    //parte de arriba del ticket con el titulo y el boton de cierre del ticket
     head.className="head-ticket"
@@ -194,6 +240,28 @@ const pintarcarrito =()=>{
         total = total + producto.precio     //calculo del monto total a pagar
         ticket.append(main)
 
+        let sumador =document.createElement("div")
+        sumador.innerHTML=`
+            <span id="menos">-</span>
+            <p>${producto.cantidad}</p>
+            <span id="mas">+</span>
+        `
+        main.append(sumador)
+        const menos=document.getElementById("menos")
+        menos.onclick=()=>{
+            producto.cantidad=producto.cantidad-1
+            pintarcarrito()
+        }
+
+
+
+        const mas=document.getElementById("mas")
+        mas.onclick=()=>{
+            producto.cantidad=producto.cantidad+1
+            pintarcarrito()
+        }
+
+
 
     let eliminar =document.createElement("span")
     eliminar.innerText="❌"
@@ -217,6 +285,8 @@ const pintarcarrito =()=>{
     const botonX = document.getElementById("button-X")
     botonX.onclick=()=>{    //boton para cerrar el ticket
         ticket.style.display="none"
+        let main = document.getElementById("main")
+        main.style.display="block"
     }
 }
 
@@ -231,5 +301,23 @@ const eliminarproducto=(id)=>{
     carrito=carrito.filter((carritoid)=>{
         return carritoid !==foundid
     })
+    contador.push(-1)
+    savecontador()
+    console.log(contador);
+    const totalc= contador.reduce((acumulador, elemento)=>acumulador + elemento, 0)
+    console.log(totalc);
+    contadorprod.innerText=`${totalc}`
     pintarcarrito()
 }
+const savecontador=()=>{
+    sessionStorage.setItem("contador",JSON.stringify(contador))
+    }
+
+const subir= document.getElementById("subir")
+
+subir.onclick=()=>{
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    })
+}  
