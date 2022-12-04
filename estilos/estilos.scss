@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
 }
+
 body{
     background: rgb(51,1,27);
     background: linear-gradient(0deg, rgba(51,1,27,1) 0%, rgba(173,13,56,1) 100%); 
@@ -98,6 +99,11 @@ main{
         margin-left: 20px;
         margin-bottom: 20px;
         font-size: 16px;
+        .fa-circle-check{
+            font-size: 30px;
+            color: #ffffff;
+            background-color: #ffffff;
+        }
     }
     i{
         color: white;

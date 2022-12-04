@@ -98,6 +98,11 @@ main .add {
   margin-bottom: 20px;
   font-size: 16px;
 }
+main .add .fa-circle-check {
+  font-size: 30px;
+  color: #ffffff;
+  background-color: #ffffff;
+}
 main i {
   color: white;
   font-size: 30px;

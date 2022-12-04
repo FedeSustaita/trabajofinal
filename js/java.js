@@ -119,6 +119,19 @@ botonC.onclick=()=>{    //boton comida para que aparezcan los productos en panta
         }
             save()
             contador()
+
+            comprar.innerHTML=`            
+            <div class="spinner-border text-danger" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>`
+            setTimeout(() => {
+                comprar.innerHTML=`  
+                ✔
+                `
+            }, 500);
+            setTimeout(() => {
+                comprar.innerText="comprar"
+            }, 1500);
         }
 })
 }
@@ -162,6 +175,18 @@ botonB.onclick=()=>{    //boton bebida para que aparezcan los productos en panta
             }
             save()
             contador()
+            comprar.innerHTML=`            
+            <div class="spinner-border text-danger" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>`
+            setTimeout(() => {
+                comprar.innerHTML=`  
+                ✔
+                `
+            }, 500);
+            setTimeout(() => {
+                comprar.innerText="comprar"
+            }, 1500);
         }
 })
 }
@@ -205,6 +230,18 @@ botonG.onclick=()=>{    //boton guarnicion para que aparezcan los productos en p
             }
             save()
             contador()
+            comprar.innerHTML=`            
+            <div class="spinner-border text-danger" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>`
+            setTimeout(() => {
+                comprar.innerHTML=`  
+                ✔
+                `
+            }, 500);
+            setTimeout(() => {
+                comprar.innerText="comprar"
+            }, 1500);
         }
 })
 }
