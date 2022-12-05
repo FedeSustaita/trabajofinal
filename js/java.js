@@ -6,16 +6,12 @@ const divB=document.getElementById("Dbebida")
 const divG=document.getElementById("Dguarnicion")
 const contadorprod=document.getElementById("contador")
 
-const xhttp= new XMLHttpRequest()
-xhttp.open(`GET`, `js/menu.JSON`, true)
-xhttp.send()
-xhttp.onreadystatechange=function () {
-    if (this.readyState ==4 && this.status==200) {
-        // console.log(this.responseText);
-        let menu =JSON.parse(this.responseText)
-        console.log(menu);
-        const div = document.getElementById("res")
-
+function cargarjson() {
+    fetch( `js/menu.JSON`)
+    .then(function(res){
+        return res.json()
+    })
+    .then(function(menu){
         const botonC=document.getElementById("btn-comida")
         botonC.onclick=()=>{    //boton comida para que aparezcan los productos en pantalla con su boton de compra
             divC.innerHTML=""
@@ -227,38 +223,43 @@ xhttp.onreadystatechange=function () {
             </div>
             `
             ticket.append(head)
-        
+        let numerador=0
             carrito.forEach((producto)=>{
         
-                console.log(carrito.length);
+                    // console.log(carrito.length);
         
-                console.log(producto);
+                // console.log(producto);
                 let main = document.createElement("div")    //parte de medio del ticket con los productos y sus respectivos precios
                 main.className="main-ticket"
                 main.innerHTML=`
                 <div class="A-main">
                     <h3 class="CG nombre-precio" id="caja-producto">${producto.nombre} $${producto.precio}</h3>
                 </div>
-                <p>Cantidad: ${producto.cantidad}</p>
                 `
                 total = total + producto.precio*producto.cantidad     //calculo del monto total a pagar
                 ticket.append(main)
+                numerador++
+                let sumador =document.createElement("div")
+                sumador.className="operador"
+                sumador.innerHTML=`
+                <p id="menos${numerador}" class="menos">-</p>
+                <p class="cantidad">${producto.cantidad}</p>
+                <p id="mas${numerador}" class="mas">+</p>
+                `
+                main.append(sumador)
+                const menos=document.getElementById(`menos${numerador}`)
+                menos.onclick=()=>{
+                    if (producto.cantidad!==1) {
+                        producto.cantidad--
+                        pintarcarrito()
+                    }
+                }
         
-                // let sumador =document.createElement("div")
-                // sumador.innerHTML=`
-                // `
-                // main.append(sumador)
-                // const menos=document.getElementById("menos")
-                // menos.onclick=()=>{
-                //     producto.cantidad=producto.cantidad-1
-                //     pintarcarrito()
-                // }
-        
-                // const mas=document.getElementById("mas")
-                // mas.onclick=()=>{
-                //     producto.cantidad=producto.cantidad+1
-                //     pintarcarrito()
-                // }
+                const mas=document.getElementById(`mas${numerador}`)
+                mas.onclick=()=>{
+                    producto.cantidad++
+                    pintarcarrito()
+                }
         
             let eliminar =document.createElement("span")
             eliminar.innerText="❌"
@@ -326,5 +327,10 @@ xhttp.onreadystatechange=function () {
             contadorprod.innerText=carrito.length
         }
         contador()
-    }
+    })
+    .catch(function(error){
+        console.log("hubo un error al cargar el json" + error);
+    } )
 }
+
+cargarjson()
