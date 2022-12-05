@@ -1,0 +1,72 @@
+[
+    {
+        "id":1,
+        "nombre":"Hamburguesa",
+        "precio":10,
+        "categoria": "comida",
+        "cantidad":1
+    },
+    {
+        "id":2,
+        "nombre":"Pizza",
+        "precio":8,
+        "categoria": "comida",
+        "cantidad":1
+    },
+    {
+        "id":3,
+        "nombre":"Pasta",
+        "precio":15,
+        "categoria": "comida",
+        "cantidad":1
+    },
+    {
+        "id":4,
+        "nombre":"Agua",
+        "precio":5,
+        "categoria": "bebida",
+        "cantidad":1
+    },
+    {
+        "id":5,
+        "nombre":"Jugo",
+        "precio":6,
+        "categoria": "bebida",
+        "cantidad":1
+    },
+    {
+        "id":6,
+        "nombre":"Gaseosa",
+        "precio":6,
+        "categoria": "bebida",
+        "cantidad":1
+    },
+    {
+        "id":7,
+        "nombre":"Cerveza",
+        "precio":8,
+        "categoria": "bebida",
+        "cantidad":1
+    },
+    {
+        "id":8,
+        "nombre":"Papas fritas",
+        "precio":8,
+        "categoria": "guarnicion",
+        "cantidad":1
+    },
+    {
+        "id":9,
+        "nombre":"Pure de papa",
+        "precio":8,
+        "categoria": "guarnicion",
+        "cantidad":1
+    },
+    {
+        "id":10,
+        "nombre":"Ensalada",
+        "precio":6,
+        "categoria": "guarnicion",
+        "cantidad":1
+    }
+]
