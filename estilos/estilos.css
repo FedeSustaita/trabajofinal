@@ -8,6 +8,7 @@ body {
   background: linear-gradient(0deg, rgb(51, 1, 27) 0%, rgb(173, 13, 56) 100%);
   background-repeat: none;
   background-position: center;
+  background-attachment: fixed;
 }
 
 header .contenedor-header {
@@ -83,6 +84,8 @@ main .banner .blur {
 main #btn-comida, main #btn-bebida, main #btn-guarnicion {
   margin-left: 20px;
   margin-bottom: 20px;
+  transition: all 0.5s;
+  color: #ffffff;
 }
 main #caja {
   width: 200px;
@@ -92,11 +95,23 @@ main #caja {
   font-size: 20px;
   color: #ffffff;
 }
+main #caja img {
+  border-radius: 5px;
+  width: 150px;
+  height: auto;
+  transition: all 0.5s;
+}
+main #caja img:hover {
+  border-radius: 5px;
+  width: 200px;
+  height: auto;
+}
 main .add {
   width: 200px;
   margin-left: 20px;
   margin-bottom: 20px;
   font-size: 16px;
+  transition: all 0.5s;
 }
 main .add .fa-circle-check {
   font-size: 30px;
@@ -269,11 +284,31 @@ main i:hover {
 }
 
 footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
   color: #ffffff;
   text-align: center;
   margin-top: 50px;
 }
-footer i {
+footer .imagen-footer {
+  grid-column: 1;
+}
+footer .imagen-footer img {
+  width: 150px;
+  height: auto;
+  transform: rotate(30deg);
+}
+footer .redes-titulo {
+  grid-column: 2;
+  height: 100%;
+}
+footer .redes-titulo h3 {
+  margin-top: 0px;
+  margin-bottom: 0;
+}
+footer .redes-titulo .redes i {
   font-size: 25px;
   margin: 5px;
+  margin-bottom: 20px;
 }/*# sourceMappingURL=estilos.css.map */

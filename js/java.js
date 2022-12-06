@@ -24,6 +24,7 @@ function cargarjson() {
                 div.innerHTML=`
                 <div id="caja">  
                     <p id="caja-producto nombre">${comida.nombre}</p>
+                    <img src="${comida.imagen}" id="caja-producto imagen"></img>
                     <p id="caja-producto precio">$${comida.precio}</p>
                 </div>
                 `
@@ -89,6 +90,7 @@ function cargarjson() {
                 div.innerHTML=`
                 <div id="caja">  
                     <p id="caja-producto nombre">${bebidas.nombre}</p>
+                    <img src="${bebidas.imagen}" id="caja-producto imagen"></img>
                     <p id="caja-producto precio">$${bebidas.precio}</p>
                 </div>
                 `
@@ -152,6 +154,7 @@ function cargarjson() {
                 div.innerHTML=`
                 <div id="caja">  
                     <p id="caja-producto nombre">${guarnicion.nombre}</p>
+                    <img src="${guarnicion.imagen}" id="caja-producto imagen"></img>
                     <p id="caja-producto precio">$${guarnicion.precio}</p>
                 </div>
                 `
