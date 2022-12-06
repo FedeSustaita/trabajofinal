@@ -7,7 +7,7 @@ const divG=document.getElementById("Dguarnicion")
 const contadorprod=document.getElementById("contador")
 
 function cargarjson() {
-    fetch( `js/menu.JSON`)
+    fetch( `./js/menu.JSON`)
     .then(function(res){
         return res.json()
     })
