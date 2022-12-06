@@ -252,6 +252,7 @@ function cargarjson() {
                     if (producto.cantidad!==1) {
                         producto.cantidad--
                         pintarcarrito()
+                        save()
                     }
                 }
         
@@ -259,6 +260,7 @@ function cargarjson() {
                 mas.onclick=()=>{
                     producto.cantidad++
                     pintarcarrito()
+                    save()
                 }
         
             let eliminar =document.createElement("span")
