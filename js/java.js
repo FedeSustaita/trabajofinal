@@ -228,10 +228,7 @@ function cargarjson() {
             ticket.append(head)
         let numerador=0
             carrito.forEach((producto)=>{
-        
-                    // console.log(carrito.length);
-        
-                // console.log(producto);
+
                 let main = document.createElement("div")    //parte de medio del ticket con los productos y sus respectivos precios
                 main.className="main-ticket"
                 main.innerHTML=`
@@ -258,14 +255,12 @@ function cargarjson() {
                         save()
                     }
                 }
-        
                 const mas=document.getElementById(`mas${numerador}`)
                 mas.onclick=()=>{
                     producto.cantidad++
                     pintarcarrito()
                     save()
                 }
-        
             let eliminar =document.createElement("span")
             eliminar.innerText="❌"
             eliminar.className="delete"

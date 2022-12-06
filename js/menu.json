@@ -5,7 +5,8 @@
         "precio":10,
         "categoria": "comida",
         "cantidad":1,
-        "imagen":"./img/burger.jpg"
+        "imagen":"./img/burger.jpg",
+        "modificacion":""
     },
     {
         "id":2,
@@ -13,7 +14,8 @@
         "precio":8,
         "categoria": "comida",
         "cantidad":1,
-        "imagen":"./img/pizza.jpg"
+        "imagen":"./img/pizza.jpg",
+        "modificacion":""
     },
     {
         "id":3,
@@ -21,7 +23,8 @@
         "precio":15,
         "categoria": "comida",
         "cantidad":1,
-        "imagen":"./img/pasta.jpg"
+        "imagen":"./img/pasta.jpg",
+        "modificacion":""
     },
     {
         "id":4,
@@ -29,7 +32,8 @@
         "precio":5,
         "categoria": "bebida",
         "cantidad":1,
-        "imagen":"./img/agua.jpg"
+        "imagen":"./img/agua.jpg",
+        "modificacion":""
     },
     {
         "id":5,
@@ -37,7 +41,8 @@
         "precio":6,
         "categoria": "bebida",
         "cantidad":1,
-        "imagen":"./img/jugo.jpg"
+        "imagen":"./img/jugo.jpg",
+        "modificacion":""
     },
     {
         "id":6,
@@ -45,7 +50,8 @@
         "precio":6,
         "categoria": "bebida",
         "cantidad":1,
-        "imagen":"./img/gaseosa.jpg"
+        "imagen":"./img/gaseosa.jpg",
+        "modificacion":""
     },
     {
         "id":7,
@@ -53,7 +59,8 @@
         "precio":8,
         "categoria": "bebida",
         "cantidad":1,
-        "imagen":"./img/cerveza.jpg"
+        "imagen":"./img/cerveza.jpg",
+        "modificacion":""
     },
     {
         "id":8,
@@ -61,7 +68,8 @@
         "precio":8,
         "categoria": "guarnicion",
         "cantidad":1,
-        "imagen":"./img/papas.jpg"
+        "imagen":"./img/papas.jpg",
+        "modificacion":""
     },
     {
         "id":9,
@@ -69,7 +77,8 @@
         "precio":8,
         "categoria": "guarnicion",
         "cantidad":1,
-        "imagen":"./img/pure.jpg"
+        "imagen":"./img/pure.jpg",
+        "modificacion":""
     },
     {
         "id":10,
@@ -77,6 +86,7 @@
         "precio":6,
         "categoria": "guarnicion",
         "cantidad":1,
-        "imagen":"./img/ensalada.jpg"
+        "imagen":"./img/ensalada.jpg",
+        "modificacion":""
     }
 ]

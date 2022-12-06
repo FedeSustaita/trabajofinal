@@ -185,7 +185,7 @@ main i:hover {
   width: 100%;
   height: 100%;
   display: flex;
-  background-color: rgb(34, 34, 34);
+  background-color: rgb(119, 16, 42);
   text-align: center;
   border-radius: 8px;
 }
@@ -253,7 +253,16 @@ main i:hover {
   color: rgb(255, 255, 255);
   text-align: center;
   font-size: 20px;
-  background-color: rgb(12, 12, 12);
+  background-color: rgb(83, 11, 29);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+#ticket .header-ticket h2 {
+  grid-column: 2;
+}
+#ticket .header-ticket .x {
+  display: flex;
+  grid-column: 3;
 }
 #ticket .footer-ticket-div {
   align-self: flex-end;
@@ -264,7 +273,7 @@ main i:hover {
   color: #ffffff;
   margin-bottom: 0;
   text-align: center;
-  background-color: rgb(12, 12, 12);
+  background-color: rgb(83, 11, 29);
 }
 #ticket .CG {
   text-align: start;
